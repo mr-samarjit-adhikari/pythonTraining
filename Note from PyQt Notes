@@ -1,0 +1,47 @@
+Note from PyQt Notes
+
+qt.digia.com --> Not required
+
+www.pyside.org --> Download PySide
+
+pySide --> python 2.x --> Qt4.8.7
+PyQt --> Python 3.x --> Qt5.9
+
+sudo apt-get install python-pyside  for 2.x
+sudo apt-get install python3-pyside  for 3.x
+
+sudo apt-get install pyside-tools
+
+sudo apt-get install qt4-designer
+sudo apt-get install qt4-dev-tools
+
+sudo apt-get install python3-pyqt5
+sudo apt-get install python3-pyqt5.qtsql
+sudo apt-get install qttools5-dev-tools
+
+**** Desktop Launcher***
+[Desktop Entry]
+Name=Qt5 Designer
+Icon=/home/mserag/Pictures/icons/qt5-designer.png
+Exec=/usr/lib/x86_64-linux-gnu/qt5/bin/designer
+Type=Application
+Categories=Application
+Terminal=false
+StartupNotify=true
+Actions=NewWindow
+
+Name[en_US]=Qt5 Designer
+
+[Desktop Action NewWindow]
+Name=Open a New Window
+Exec=/usr/lib/x86_64-linux-gnu/qt5/bin/designer
+
+********************************************
+add that code to a file, name it anything but with extension '.desktop' and stick it in ~/.local/share/applications/
+
+# Convert the UI file into python file 
+$pyside-uic 
+$pyuic4
+
+
+

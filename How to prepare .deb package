@@ -1,0 +1,50 @@
+How to prepare .deb package
+
+Step 1: Create the directories
+  mkdir namereflector && mkdir namereflector/DEBIAN
+  mkdir -p namereflector/usr/share/namereflector
+  
+
+Step 2: Copy .pyc files into your package so that the folder tree looks like following
+
+$tree namereflector/
+namereflector/
+├── DEBIAN
+│   ├── control
+│   └── postinst
+└── usr
+    └── share
+        └── namereflector
+            ├── gui
+            │   ├── __init__.pyc
+            │   └── NameReflectorGui.pyc
+            └── NameReflector.pyc
+
+Step 3: Create the control file as follows. 
+
+Package: NameReflector
+Version: 0.1
+Architecture: all
+Essential: no
+Section: web
+Priority: optional
+Depends: python (>=2.7)
+Maintainer: Samarjit
+Description: This is a Named Reflector Application
+
+Step 4: Add a post-installation script
+
+create a file 'postinst' in the DEBIAN directory. Make sure it is executable
+
+export PATH=$PATH:/usr/share/namereflector/
+
+Step 5: Create the package
+
+dpkg-deb --build namereflector
+
+install 
+
+dpkg -i namereflector.deb
+
+
+

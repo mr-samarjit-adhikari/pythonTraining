@@ -1,0 +1,9 @@
+Package: NameReflector
+Version: 0.1
+Architecture: all
+Essential: no
+Section: web
+Priority: optional
+Depends: python (>=2.7)
+Maintainer: Samarjit
+Description: This is a Named Reflector Application

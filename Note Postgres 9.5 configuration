@@ -1,0 +1,33 @@
+Note Postgres 9.5 configuration
+
+sudo -u postgres psql postgres
+Set a password for the "postgres" database role using the command:
+
+\password postgres
+
+and give your password when prompted. The password text will be hidden from the console for security purposes.
+
+Type Control+D or \q to exit the posgreSQL prompt.
+
+Using pgAdmin III GUI
+Edit
+sudo nano /etc/postgresql/9.5/main/pg_hba.conf
+and change the line 
+
+# Database administrative login by Unix domain socket
+local   all             postgres                                peer
+to
+
+# Database administrative login by Unix domain socket
+local   all             postgres                                md5
+
+Now you should reload the server configuration changes and connect pgAdmin III to your PostgreSQL database server.
+
+sudo /etc/init.d/postgresql reload
+
+Creating user and userdb
+
+sudo -u postgres createuser -D -A -P ptuser
+sudo -u postgres createdb -O ptuser ptdb
+
+The first command line creates the user with no database creation rights (-D) with no add user rights -A) and will prompt you for entering a password (-P). The second command line create the database 'ptdb with 'ptuser' as owner.

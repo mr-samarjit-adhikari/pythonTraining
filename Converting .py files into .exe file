@@ -1,0 +1,11 @@
+Converting .py files into .exe file
+
+1. py2exe
+2. cx_freeze (six-freeze)
+3. PyInstaller
+
+Inno Setup for creating an installer on windows
+
+Generate pyc for all py files in current directory 
+python -m compileall .
+
